@@ -4,7 +4,20 @@
             <form [formGroup]="formFactura">
                 <h1>Ejemplo de formulario reactive forms</h1>
                 <div class="row column">
-                    <label>Nombre Cliente</label>
+                    <label>
+                        Nombre Cliente
+                        <span class="success" *ngIf="formFactura.controls?.['nombreCliente']?.valid">
+                            &#10004;
+                        </span>
+                        <span class="alert" *ngIf="formFactura.controls?.['nombreCliente'].errors?.['required']
+                                                && formFactura.controls?.['nombreCliente']?.touched">
+                            El nombre del Cliente es obligatorio
+                        </span>
+                        <span class="alert" *ngIf="formFactura.controls?.['nombreCliente'].errors?.['minlength']
+                                                && formFactura.controls?.['nombreCliente']?.dirty">
+                            El nombre del Cliente debe tener más de 4 caracteres
+                        </span>
+                    </label>   
                     <input type="text" formControlName="nombreCliente">
                 </div>
                 <div class="row column">
@@ -15,6 +28,9 @@
             <pre>{{formFactura.value | json}}</pre>
             <pre>Formulario válido: {{formFactura.valid}}</pre>
             <pre>Campo nombre válido: {{formFactura.controls['nombreCliente'].valid}}</pre>
+            <pre>Estado pristine: {{formFactura.controls['nombreCliente'].pristine}}</pre>
+            <pre>Estado dirty: {{formFactura.controls['nombreCliente'].dirty}}</pre>
+            <pre>Estado touched: {{formFactura.controls['nombreCliente'].touched}}</pre>
         </div>
     </div>
 </div>
