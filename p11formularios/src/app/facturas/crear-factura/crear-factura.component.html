@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-100">
-            <form [formGroup]="formFactura">
+            <form [formGroup]="formFactura" (ngSubmit)="addFactura()">
                 <h1>Ejemplo de formulario reactive forms</h1>
                 <div class="row column">
                     <label>
@@ -37,13 +37,48 @@
                     </label>
                     <input type="text" formControlName="cifCliente" maxlength="9">
                 </div>
+                <div class="row column">
+                    <label>Fecha Factura</label>
+                    <input type="date" formControlName="fechaFactura">
+                </div>
+                <div class="row">
+                    <div class="col-50"></div>
+                    <div class="col-50">
+                        <label>Base imponible</label>
+                        <input type="number" formControlName="baseImponible">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-50"></div>
+                    <div class="col-50">
+                        <label>% IVA</label>
+                        <select formControlName="tipoIVA">
+                            <option value=0>0 %</option>
+                            <option value=0.04>4 %</option>
+                            <option value=0.1>10 %</option>
+                            <option value=0.21>21 %</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row column">
+                    <label>Importe IVA</label>
+                    <input type="number" formControlName="importeIVA" readonly>
+                </div>
+                <div class="row column">
+                    <label>Total Factura</label>
+                    <input type="number" formControlName="totalFactura" readonly>
+                </div>
+                <div class="row j-end">
+                    <button type="button" class="outline">Cancelar</button>
+                    <button type="submit" class="m-l-small" [disabled]="formFactura.invalid">Añadir</button>
+                </div>
             </form>
-            <pre>{{formFactura.value | json}}</pre>
+            <!-- <pre>{{formFactura.value | json}}</pre>
             <pre>Formulario válido: {{formFactura.valid}}</pre>
             <pre>Campo nombre válido: {{formFactura.controls['nombreCliente'].valid}}</pre>
             <pre>Estado pristine: {{formFactura.controls['nombreCliente'].pristine}}</pre>
             <pre>Estado dirty: {{formFactura.controls['nombreCliente'].dirty}}</pre>
-            <pre>Estado touched: {{formFactura.controls['nombreCliente'].touched}}</pre>
+            <pre>Estado touched: {{formFactura.controls['nombreCliente'].touched}}</pre> -->
         </div>
     </div>
 </div>
