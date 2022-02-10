@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'p04estructura';
-  mensaje = '¡Hola Mundo!'
+  mensaje: string = '¡Hola Mundo!'
 }
