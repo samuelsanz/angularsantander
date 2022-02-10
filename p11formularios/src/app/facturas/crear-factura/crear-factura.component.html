@@ -21,8 +21,21 @@
                     <input type="text" formControlName="nombreCliente">
                 </div>
                 <div class="row column">
-                    <label>CIF Cliente</label>
-                    <input type="text" formControlName="cifCliente">
+                    <label>
+                        CIF Cliente
+                        <span class="success" *ngIf="formFactura.controls?.['cifCliente']?.valid">
+                            &#10004;
+                        </span>
+                        <span class="alert" *ngIf="formFactura.controls?.['cifCliente'].errors?.['required']
+                                                && formFactura.controls?.['cifCliente']?.touched">
+                            El CIF del Cliente es obligatorio
+                        </span>
+                        <span class="alert" *ngIf="formFactura.controls?.['cifCliente'].errors?.['invalidCif']
+                                                && formFactura.controls?.['cifCliente']?.dirty">
+                            {{formFactura.controls?.['cifCliente'].errors?.['mensaje']}}
+                        </span>
+                    </label>
+                    <input type="text" formControlName="cifCliente" maxlength="9">
                 </div>
             </form>
             <pre>{{formFactura.value | json}}</pre>

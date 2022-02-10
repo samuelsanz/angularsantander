@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ValidateCif } from 'src/app/validators/cif.validator';
 
 @Component({
   selector: 'app-crear-factura',
@@ -15,7 +16,7 @@ export class CrearFacturaComponent implements OnInit {
   ngOnInit(): void {
     this.formFactura = new FormGroup({
       nombreCliente: new FormControl('', [Validators.required, Validators.minLength(4)]), 
-      cifCliente: new FormControl('', [Validators.required])
+      cifCliente: new FormControl('', [Validators.required, ValidateCif])
     })
   }
 
