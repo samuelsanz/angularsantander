@@ -1,0 +1,13 @@
+<div class="card">
+    <h1>Ejemplo de directiva *ngFor</h1>
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Cif</th>
+        </tr>
+        <tr *ngFor="let cliente of clientes">
+            <td>{{cliente.nombre}}</td>
+            <td>{{cliente.cif}}</td>
+        </tr>
+    </table>
+</div>
