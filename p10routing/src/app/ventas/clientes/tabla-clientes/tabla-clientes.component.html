@@ -1,0 +1,23 @@
+<div class="container" appLoadFade>
+    <div class="row">
+        <div class="col-100">
+            <h1>Clientes</h1>
+            <button type="button" routerLink="../">Regresar</button>
+            <button type="button" routerLink="../crear-cliente">Nuevo cliente</button>
+            <table>
+                <tr>
+                    <th>Nombre</th>
+                    <th>CIF</th>
+                    <th></th>
+                </tr>
+                <tr *ngFor="let cliente of clientes">
+                    <td>{{cliente.nombre}}</td>
+                    <td>{{cliente.cif}}</td>
+                    <td>
+                        <b routerLink="/ventas/visualizar-cliente/{{cliente.id}}">Visualizar</b>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

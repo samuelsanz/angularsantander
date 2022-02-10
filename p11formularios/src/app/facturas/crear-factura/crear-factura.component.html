@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row">
+        <div class="col-100">
+            <form [formGroup]="formFactura">
+                <h1>Ejemplo de formulario reactive forms</h1>
+                <div class="row column">
+                    <label>Nombre Cliente</label>
+                    <input type="text" formControlName="nombreCliente">
+                </div>
+                <div class="row column">
+                    <label>CIF Cliente</label>
+                    <input type="text" formControlName="cifCliente">
+                </div>
+            </form>
+            <pre>{{formFactura.value | json}}</pre>
+            <pre>Formulario válido: {{formFactura.valid}}</pre>
+            <pre>Campo nombre válido: {{formFactura.controls['nombreCliente'].valid}}</pre>
+        </div>
+    </div>
+</div>

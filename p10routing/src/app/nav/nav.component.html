@@ -1,0 +1,7 @@
+<nav>
+    <ul>
+        <a routerLink="/" routerLinkActive="activo" [routerLinkActiveOptions]="{exact: true}">Inicio</a>
+        <a *ngIf="hasVentasAccess()" routerLink="/ventas" routerLinkActive="activo">Ventas</a>
+        <a routerLink="/soporte" routerLinkActive="activo">Soporte</a>
+    </ul>
+</nav>

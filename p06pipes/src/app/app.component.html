@@ -1,0 +1,147 @@
+<div class="card l">
+  <h1>Pipes texto</h1>
+  <hr>
+  <table>
+    <tr>
+      <th>Pipe</th>
+      <th>Valor sin pipe</th>
+      <th>Valor con pipe</th>
+    </tr>
+    <tr>
+      <td>uppercase</td>
+      <td>{{texto}}</td>
+      <td>{{texto | uppercase}}</td>
+    </tr>
+    <tr>
+      <td>lowercase</td>
+      <td>{{texto}}</td>
+      <td>{{texto | lowercase}}</td>
+    </tr>
+    <tr>
+      <td>titlecase</td>
+      <td>{{texto}}</td>
+      <td>{{texto | titlecase}}</td>
+    </tr>
+  </table>
+  <h1>Pipe slice</h1>
+  <hr>
+  <table>
+    <tr>
+      <th>Pipe</th>
+      <th>Valor sin pipe</th>
+      <th>Valor con pipe</th>
+    </tr>
+    <tr>
+      <td>slice</td>
+      <td>{{id}}</td>
+      <td>{{id | slice: -6}}</td>
+    </tr>
+  </table>
+  <h1>Pipe de fecha</h1>
+  <hr>
+  <table>
+    <tr>
+      <th>Pipe</th>
+      <th>Valor sin pipe</th>
+      <th>Valor con pipe</th>
+    </tr>
+    <tr>
+      <td>date</td>
+      <td>{{fecha}}</td>
+      <td>{{fecha | date: "dd/MM/yy hh:mm"}}</td>
+    </tr>
+    <tr>
+      <td>date - short</td>
+      <td>{{fecha}}</td>
+      <td>{{fecha | date: "short"}}</td>
+    </tr>
+    <tr>
+      <td>date - medium</td>
+      <td>{{fecha}}</td>
+      <td>{{fecha | date: "medium"}}</td>
+    </tr>
+    <tr>
+      <td>date - long</td>
+      <td>{{fecha}}</td>
+      <td>{{fecha | date: "long"}}</td>
+    </tr>
+  </table>
+  <h1>Pipe de números</h1>
+  <hr>
+  <table>
+    <tr>
+      <th>Pipe</th>
+      <th>Valor sin pipe</th>
+      <th>Valor con pipe</th>
+    </tr>
+    <tr>
+      <td>number con dos decimales</td>
+      <td>{{importe}}</td>
+      <!-- El string se compone de: numero_minimo_enteros.numero_minimo_decimales-numero_maximo_decimales -->
+      <td>{{importe | number: '0.2-2'}}</td>
+    </tr>
+    <tr>
+      <td>Porcentual con dos decimales</td>
+      <td>{{aciertos}}</td>
+      <td>{{aciertos | percent: '0.2-2'}}</td>
+    </tr>
+    <tr>
+      <td>Divisa Euros</td>
+      <td>{{importe}}</td>
+      <td>{{importe | currency: 'EUR'}}</td>
+    </tr>
+  </table>
+  <h1>Pipe JSON</h1>
+  <hr>
+  <table>
+    <tr>
+      <th>Pipe</th>
+      <th>Valor sin pipe</th>
+      <th>Valor con pipe</th>
+    </tr>
+    <tr>
+      <td>Objeto a JSON</td>
+      <td>{{actor}}</td>
+      <td>{{actor | json}}</td>
+    </tr>
+  </table>
+  <h1>Pipe async</h1>
+  <hr>
+  <table>
+    <tr>
+      <th>Pipe</th>
+      <th>Valor sin pipe</th>
+      <th>Valor con pipe</th>
+    </tr>
+    <tr>
+      <td>Async desde observable</td>
+      <td>{{actrizObservable}}</td>
+      <td>{{actrizObservable | async | json}}</td>
+    </tr>
+  </table>
+  <h1>Pipe personalizado</h1>
+  <hr>
+  <table>
+    <tr>
+      <th>Pipe</th>
+      <th>Valor sin pipe</th>
+      <th>Valor con pipe</th>
+    </tr>
+    <tr>
+      <td>Pipe numero en  numero.pipe.ts</td>
+      <td>{{cantidad}}</td>
+      <td>
+        {{cantidad | numero : decimales}}
+        <button class="mini" (click)="setDecimales(1)">+</button>
+        <button class="mini" (click)="setDecimales(-1)">-</button>
+      </td>
+    </tr>
+    <tr>
+      <td>Pipe numero en  numero.pipe.ts con moneda</td>
+      <td>{{cantidad}}</td>
+      <td>
+        {{cantidad | numero : 2: "€"}}
+      </td>
+    </tr>
+  </table>
+</div>

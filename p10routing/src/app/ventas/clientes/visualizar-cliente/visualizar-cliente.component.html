@@ -1,0 +1,26 @@
+<div class="container" appLoadFade>
+    <div class="row">
+        <div class="col-25"></div>
+        <div class="col-50">
+            <h1>Detalle de Cliente</h1>
+            <table>
+                <tr>
+                    <th>Nombre</th>
+                    <td>{{cliente.nombre}}</td>
+                </tr>
+                <tr>
+                    <th>CIF</th>
+                    <td>{{cliente.cif}}</td>
+                </tr>
+                <tr>
+                    <th>Localidad</th>
+                    <td>{{cliente.localidad}}</td>
+                </tr>
+            </table>
+            <div class="row j-end">
+                <button type="button" routerLink="/ventas/tabla-clientes">Aceptar</button>
+            </div>
+        </div>
+        <div class="col-25"></div>
+    </div>
+</div>
