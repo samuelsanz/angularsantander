@@ -1,0 +1,27 @@
+<div class="card xl">
+    <div class="titles-row">
+      <h1>Clientes</h1>
+      <button type="button" routerLink="crear-cliente">Añadir nuevo</button>
+    </div>
+    <hr>
+    <div class="row">
+        <form [formGroup]="formSearch">
+            <input type="text" formControlName="search" placeholder="Nombre Cliente">
+        </form>
+    </div>
+    <p *ngIf="spinner">Esperando respuesta...</p>
+    <table *ngIf="!spinner">
+      <tr>
+        <th>Nombre</th>
+        <th>Localidad</th>
+        <th></th>
+        <th></th>
+      </tr>
+      <tr *ngFor="let cliente of clientes">
+        <td>{{cliente.nombre}}</td>
+        <td>{{cliente.localidad}}</td>
+        <td routerLink="actualizar-cliente/{{cliente._id}}">Detalle</td>
+        <td (click)="borrarCliente(cliente._id)">Eliminar</td>
+      </tr>
+    </table>
+  </div>
