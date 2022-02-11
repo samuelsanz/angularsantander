@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'p13http';
+
+  constructor() {
+    this.fakeLogin();
+  }
+
+  fakeLogin() {
+    localStorage.setItem('faketoken', '1234') // No lo haga en producción, por favor...
+  }
 }
